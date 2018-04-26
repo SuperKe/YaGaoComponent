@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">basicres</string>
+    <!--logincomponent-->
+    <string name="login_name">用户名</string>
+    <string name="login_pass">密码</string>
+    <string name="login">登录</string>
+</resources>

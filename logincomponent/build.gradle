@@ -1,0 +1,47 @@
+apply plugin: 'com.dd.comgradle'
+apply plugin: 'com.alibaba.arouter'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion project.ANDROID_COMPILE_SDK_VERSION as int
+    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion project.ANDROID_MIN_SDK_VERSION as int
+        targetSdkVersion project.ANDROID_TARGET_SDK_VERSION as int
+        versionCode project.APP_VERSION_CODE as int
+        versionName project.APP_VERSION_NAME
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+/**
+ * 阿里路由kotlin配置
+ */
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
+
+dependencies {
+    implementation project(':commonlib')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    kapt 'com.alibaba:arouter-compiler:1.1.4'
+    kapt 'com.jakewharton:butterknife-compiler:8.4.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+combuild {
+    applicationName = 'com.demo.chenke.logincomponent.application.LoginApplication'
+    isRegisterCompoAuto = true
+}

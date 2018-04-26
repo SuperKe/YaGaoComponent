@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion project.ANDROID_COMPILE_SDK_VERSION as int
+    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion project.ANDROID_MIN_SDK_VERSION as int
+        targetSdkVersion project.ANDROID_TARGET_SDK_VERSION as int
+        versionCode project.APP_VERSION_CODE as int
+        versionName project.APP_VERSION_NAME
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api 'com.android.support:appcompat-v7:26.1.0'
+    api 'com.alibaba:arouter-api:1.3.1'//阿里路由
+    api project(':basiclib')//rxjava和retrofit搭建的mvp框架，可以剥离直接用
+    api project(':basicres')//资源文件//存放公用的资源文件和drawble文件
+}

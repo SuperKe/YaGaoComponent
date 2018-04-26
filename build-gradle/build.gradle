@@ -1,0 +1,11 @@
+apply plugin: 'groovy'
+
+dependencies {
+    compile 'com.android.tools.build:gradle:2.3.2'
+    compile group: 'org.javassist', name: 'javassist', version: '3.20.0-GA'
+    //gradle sdk
+    compile gradleApi()
+    //groovy sdk
+    compile localGroovy()
+}
+

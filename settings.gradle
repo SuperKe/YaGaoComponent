@@ -1,0 +1,1 @@
+include ':app', ':basicres',':build-gradle', ':componentlib', ':commonlib', ':logincomponent', ':basiclib', ':otherlib'
